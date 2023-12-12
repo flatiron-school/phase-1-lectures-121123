@@ -10,15 +10,44 @@ function printMessage() {
   console.log("Hello World!");
 }
 
-printMessage();
-
 // output: Hello World!
 
+const name = "Joe";
 // pass a custom parameter to the function
 
+// What is scope in Javascript?
+// Scope refers to a piece of data that could be accessed globally or locally
+
+// ? Global scope => name is a global variable
+// ? Local scope => local -> its a parameter for the function greeting, we do not have access to that parameter outside the scope of the function
+
+// function greeting(name = "Tom") {
+//   console.log("Good morning " + name);
+// }
+
+// console.log(name);
+
+// greeting();
 // create a function that takes two numbers parameters and returns the sum of those parameters
 
 // create a function that takes two numbers and a string for the operator and then returns the result of the operator on the two numbers.
+
+// calculate(10, 20, '+') => 30
+// calculate(10, 20, '*') => 200
+
+// function calculate(num1, num2, operator) {
+//   if (operator === "+") {
+//     return num1 + num2;
+//   } else if (operator === "-") {
+//     return Math.abs(num1 - num2);
+//   } else if (operator === "*") {
+//     return num1 * num2;
+//   } else if (operator === "/") {
+//     return num1 / num2;
+//   }
+//   console.log("This is illegal operation");
+//   return false;
+// }
 
 /* 
 ! student exercise:
@@ -36,21 +65,32 @@ printMessage();
 
 // example:
 
-// function average(num1, num2) {
-//   return (num1 + num2) / 2;
-// }
+function average(num1, num2) {
+  return (num1 + num2) / 2;
+}
 
-// let avg = average;
+// console.log(avg(10, 20));
 
-// console.log(avg(5, 10));
+let avg = average;
+
+console.log(avg(5, 10));
 
 // * functions can be passed as arguments to other functions - callback functions
 
 // example:
 
-// function greeting(funcArg, name) {
-//   console.log(funcArg, name);
-// }
+function product(num1, num2) {
+  return num1 * num2;
+}
+
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+function calculate(num1, num2, callback) {
+  // console.log(typeof callback);
+  return callback(num1, num2);
+}
 
 // * functions can be returned from other functions
 
@@ -68,14 +108,39 @@ printMessage();
 // * arrow functions are a shorter syntax for writing function expressions
 // example:
 
+// function printSomething(message) {
+//   console.log(message);
+// }
+
+// let printSomething = (message) => {
+//   console.log(message);
+//   return message;
+// };
+
+printSomething("Print this");
 // * rules:
 
 // * if the function has a single parameter, the parentheses are optional
 // example:
 
+// let printSomething = message => {
+//   console.log(message);
+//   return message;
+// };
+
 // * if the function has a single expression, the curly braces are optional
 // example:
+// let printSomething = (message) => console.log(message);
 
 // * if the function has a single expression, the return keyword is optional
 // example:
+
+// let printSomething = (message) => message + "Other text"
+
+// forEach, filter, map
+
+// myMap([], callback)
+
+// filter([], callback)
+
 
